@@ -3,3 +3,4 @@ sites/default/files
 *.css.map
 *.scssc*
 .idea
+.git
