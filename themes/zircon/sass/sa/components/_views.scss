@@ -32,7 +32,7 @@
     td {
       padding: 0 10px;
       &.is-active {
-        background: #f2ffff;
+        background: #eaffff;
       }
     }
     th {
@@ -47,6 +47,7 @@
   .task-In_process { color: purple; }
   .task-Hold       { color: red; }
   .task-Completed  { color: green; }
+  .task-Duplicate  { color: teal; }
   .task-Postponed  { color: orange; }
   .task-Refused    { color: black; }
   // Task Priority

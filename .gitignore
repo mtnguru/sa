@@ -2,3 +2,4 @@ sites/default/files
 *.sass-cache*
 *.css.map
 *.scssc*
+.idea

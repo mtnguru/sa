@@ -81,7 +81,7 @@ a:hover {
 }
 /* line 34, ../sass/sa/components/_views.scss */
 .view-content table td.is-active {
-  background: #f2ffff;
+  background: #eaffff;
 }
 /* line 38, ../sass/sa/components/_views.scss */
 .view-content table th {
@@ -109,26 +109,30 @@ a:hover {
   color: green;
 }
 /* line 50, ../sass/sa/components/_views.scss */
+.view-content .task-Duplicate {
+  color: teal;
+}
+/* line 51, ../sass/sa/components/_views.scss */
 .view-content .task-Postponed {
   color: orange;
 }
-/* line 51, ../sass/sa/components/_views.scss */
+/* line 52, ../sass/sa/components/_views.scss */
 .view-content .task-Refused {
   color: black;
 }
-/* line 53, ../sass/sa/components/_views.scss */
+/* line 54, ../sass/sa/components/_views.scss */
 .view-content .task-Critical {
   color: red;
 }
-/* line 54, ../sass/sa/components/_views.scss */
+/* line 55, ../sass/sa/components/_views.scss */
 .view-content .task-Major {
   color: orange;
 }
-/* line 55, ../sass/sa/components/_views.scss */
+/* line 56, ../sass/sa/components/_views.scss */
 .view-content .task-Minor {
   color: blue;
 }
-/* line 56, ../sass/sa/components/_views.scss */
+/* line 57, ../sass/sa/components/_views.scss */
 .view-content .task-Normal {
   color: green;
 }
