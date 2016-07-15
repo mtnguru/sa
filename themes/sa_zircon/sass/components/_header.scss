@@ -1,0 +1,29 @@
+#header {
+  .site-logo-container {
+    vertical-align: top;
+    display: inline-block;
+  }
+  .site-block {
+    vertical-align: top;
+    display: inline-block;
+    padding: 15px 0 0 20px;
+  }
+  .site-name {
+    a {
+      font-size: 44px;
+      font-family: 'oswaldregular';
+      font-weight: 600;
+//    color: #30aa60;
+      color: #c09a60;
+    }
+  }
+  .site-slogan {
+    text-align: center;
+  }
+  #block-zircon-branding {
+    img {
+      margin-left: 30px;
+    }
+  }
+}
+

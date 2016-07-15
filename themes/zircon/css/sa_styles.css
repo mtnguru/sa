@@ -4,7 +4,12 @@
  * 
  * Wildcarding made possible with the gem sass-globbing 
  */
-/* No files to import found in sa/base/* */
+/* line 1, ../sass/sa/base/_base.scss */
+.container {
+  width: auto;
+  margin: 0 12px;
+}
+
 /* line 2, ../sass/sa/components/_header.scss */
 #header .menu {
   float: right;
@@ -58,82 +63,100 @@ a:hover {
   font-size: 120%;
   font-weight: bold;
 }
+/* line 12, ../sass/sa/components/_views.scss */
+.view-filters .form-type-textfield select#edit-og-group-ref-target-id,
+.view-filters .form-type-select select#edit-og-group-ref-target-id {
+  height: 11em;
+}
 /* line 15, ../sass/sa/components/_views.scss */
+.view-filters .form-type-textfield select::-webkit-scrollbar,
+.view-filters .form-type-select select::-webkit-scrollbar {
+  display: none;
+}
+/* line 19, ../sass/sa/components/_views.scss */
 .view-filters .form-checkboxes {
   margin-top: .8em;
 }
-/* line 17, ../sass/sa/components/_views.scss */
+/* line 21, ../sass/sa/components/_views.scss */
 .view-filters .form-checkboxes .form-type-checkbox {
   margin: 0;
 }
-/* line 20, ../sass/sa/components/_views.scss */
+/* line 24, ../sass/sa/components/_views.scss */
 .view-filters .form-checkboxes input[type="checkbox"] {
   margin-top: 0;
 }
-/* line 25, ../sass/sa/components/_views.scss */
+/* line 30, ../sass/sa/components/_views.scss */
+.view-filters .form-item-field-assigned-target-id input,
 .view-filters .form-item-nid input {
-  width: 5em;
+  width: 8em;
 }
 
-/* line 32, ../sass/sa/components/_views.scss */
+/* line 37, ../sass/sa/components/_views.scss */
 .view-content table td {
   padding: 0 10px;
 }
-/* line 34, ../sass/sa/components/_views.scss */
+/* line 39, ../sass/sa/components/_views.scss */
 .view-content table td.is-active {
   background: #eaffff;
 }
-/* line 38, ../sass/sa/components/_views.scss */
+/* line 43, ../sass/sa/components/_views.scss */
 .view-content table th {
   font-size: 120%;
   padding: 3px 10px;
 }
-/* line 45, ../sass/sa/components/_views.scss */
-.view-content .task-Proposed {
-  color: grey;
+
+/* line 51, ../sass/sa/components/_views.scss */
+.views-tasks .form-item-field-project-target-id,
+.views-tasks .form-item-field-project-assigned-id,
+.views-tasks .form-item-nid {
+  float: left;
 }
-/* line 46, ../sass/sa/components/_views.scss */
-.view-content .task-Accepted {
+/* line 58, ../sass/sa/components/_views.scss */
+.views-tasks .task-Proposed {
+  color: cyan;
+}
+/* line 59, ../sass/sa/components/_views.scss */
+.views-tasks .task-Accepted {
   color: blue;
 }
-/* line 47, ../sass/sa/components/_views.scss */
-.view-content .task-In_process {
-  color: purple;
+/* line 60, ../sass/sa/components/_views.scss */
+.views-tasks .task-Active {
+  color: blueviolet;
 }
-/* line 48, ../sass/sa/components/_views.scss */
-.view-content .task-Hold {
+/* line 61, ../sass/sa/components/_views.scss */
+.views-tasks .task-Hold {
   color: red;
 }
-/* line 49, ../sass/sa/components/_views.scss */
-.view-content .task-Completed {
+/* line 62, ../sass/sa/components/_views.scss */
+.views-tasks .task-Completed {
   color: green;
 }
-/* line 50, ../sass/sa/components/_views.scss */
-.view-content .task-Duplicate {
-  color: teal;
-}
-/* line 51, ../sass/sa/components/_views.scss */
-.view-content .task-Postponed {
+/* line 63, ../sass/sa/components/_views.scss */
+.views-tasks .task-Postponed {
   color: orange;
 }
-/* line 52, ../sass/sa/components/_views.scss */
-.view-content .task-Refused {
+/* line 64, ../sass/sa/components/_views.scss */
+.views-tasks .task-Duplicate {
+  color: grey;
+}
+/* line 65, ../sass/sa/components/_views.scss */
+.views-tasks .task-Refused {
   color: black;
 }
-/* line 54, ../sass/sa/components/_views.scss */
-.view-content .task-Critical {
+/* line 67, ../sass/sa/components/_views.scss */
+.views-tasks .task-Critical {
   color: red;
 }
-/* line 55, ../sass/sa/components/_views.scss */
-.view-content .task-Major {
+/* line 68, ../sass/sa/components/_views.scss */
+.views-tasks .task-Major {
   color: orange;
 }
-/* line 56, ../sass/sa/components/_views.scss */
-.view-content .task-Minor {
+/* line 69, ../sass/sa/components/_views.scss */
+.views-tasks .task-Minor {
   color: blue;
 }
-/* line 57, ../sass/sa/components/_views.scss */
-.view-content .task-Normal {
+/* line 70, ../sass/sa/components/_views.scss */
+.views-tasks .task-Normal {
   color: green;
 }
 
