@@ -1,5 +1,4 @@
 //tablet
-@import "includes/_include";
 @media (max-width: 1199px) {
     #slideshow_container {
         width: 970px !important;
@@ -8,6 +7,7 @@
 }
 
 @media (max-width: 1199px) and (min-width: 992px) {
+    @import "includes/_include";
     /* slideshow */
     #slideshow {
         .container {
@@ -45,6 +45,7 @@
 }
 
 @media (max-width: 991px) {
+    @import "includes/_include";
     /* slideshow */
     #slideshow_container {
         width: 750px !important;
@@ -283,6 +284,7 @@
 
 //mobile
 @media (max-width: 767px) {
+    @import "includes/_include";
     h2,
     h1,
     .h1 {
@@ -459,6 +461,7 @@
 @media (max-width: 640px) {}
 
 @media (max-width: 480px) {
+    @import "includes/_include";
     #header {
         #logo {
             float: none;
