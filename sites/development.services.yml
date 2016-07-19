@@ -5,11 +5,8 @@
 services:
   cache.backend.null:
     class: Drupal\Core\Cache\NullBackendFactory
-<<<<<<< HEAD
 #parameters:
 #  twig-config:
 #    debug: true
 #    auto_reload: true
 #    cache: false
-=======
->>>>>>> 7159322d6b461488caee1b5a2edc9e156f2cffb6

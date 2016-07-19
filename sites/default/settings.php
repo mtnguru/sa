@@ -722,7 +722,7 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
 $databases['default']['default'] = array (
   'database' => 'atom5',
   'username' => 'root',
-  'password' => 'taichi',
+  'password' => 'atom',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
