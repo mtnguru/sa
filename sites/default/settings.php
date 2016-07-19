@@ -720,7 +720,7 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
 }
 
 $databases['default']['default'] = array (
-  'database' => 'atom',
+  'database' => 'atom5',
   'username' => 'root',
   'password' => 'taichi',
   'prefix' => '',
