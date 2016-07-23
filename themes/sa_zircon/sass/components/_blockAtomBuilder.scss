@@ -1,0 +1,125 @@
+
+body#project-atom-builder {
+  .col-lg-9 {
+    width: 100%;
+  }
+
+  // Atom Builder Controls form
+  .block-atom-builder-controls {
+    padding: 10px;
+    vertical-align: top;
+    display: inline-flex;
+    width: 200px;
+    background: #fff5e0;
+    form {
+      width: 100%;
+    }
+    label {
+      font-size: 14px;
+    }
+    .form-checkboxes {
+      margin: 0;
+      .form-item {
+        margin: 0;
+      }
+    }
+    .subtitle {
+      font-weight: bold;
+      font-size: 13px;
+      text-align: center;
+    }
+    .form-item-styler {
+      margin: 0 0 10px;
+      select {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        background: white;
+      }
+    }
+    .control-block {
+      display: none;
+      hr {
+        margin: 10px 0 15px;
+        border-top: 1px solid #bbb;
+      }
+      .sa-header {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .sa-label {
+        font-weight: bold;
+        margin-top: 5px;
+      }
+      .sa-indent label {
+        padding-left: 15px;
+      }
+      .form-type-range {
+        margin: 0;
+        label {
+          vertical-align: top;
+          margin: 0;
+          width: 50%;
+          &not:first-child {
+          }
+        }
+        input {
+          display: inline-block;
+          width: 47%;
+          background: #888;
+          padding: 0;
+          height: 18px;
+        }
+      }
+      .form-type-color {
+        margin: 10px 0 7px;
+        &not:first-child {
+          border-top: solid 1px #aaa;
+          padding-top: 10px;
+        }
+        label {
+          display: inline-block;
+          vertical-align: top;
+          font-size: 16px;
+          font-weight: bold;
+          width: 60%;
+          margin: 2px 0 0;
+        }
+        input[type="color"] {
+          display: inline-block;
+          width: 37%;
+          height: 26px;
+          padding: 0;
+        }
+      }
+      .form-type-checkbox {
+        margin: 0 0 0 10px ;
+      }
+    }
+    .button {
+      margin: 5px 0;
+    }
+    .form-radio {
+      margin: 0 0 0 25px;
+    }
+    .form-item-radio {
+      margin: 0;    .form-type-checkbox {
+      margin: 0 0 0 10px ;
+    }
+      input {
+        margin: 0;
+      }
+    }
+    .js-form-submit {
+      padding: 5px 8px;
+      border-radius: 8px;
+    }
+  }
+
+  // Atom Builder Viewer Block
+  .block-atom-builder-viewer {
+    display: inline-flex;
+    width: calc(100% - 240px);
+  }
+}
