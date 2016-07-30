@@ -12,7 +12,7 @@
   {% if node_type %}
   {% endif %}
   <body{{ attributes.setAttribute('id', node_type ~ '-' ~ page['#title'] | clean_id) }}>
-    {{ kint() }}
+    {# kint() #}
     <a href="#main-content" class="visually-hidden focusable">
       {{ 'Skip to main content'|t }}
     </a>

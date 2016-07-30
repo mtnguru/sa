@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var livereload = require('gulp-livereload')
+//var livereload = require('livereload')
 var uglify = require('gulp-uglifyjs');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
@@ -37,10 +37,10 @@ gulp.task('uglify', function() {
 });
 
 gulp.task('watch', function(){
-    livereload.listen();
+//  livereload.listen();
 
     gulp.watch('sass/**/*.scss', ['sass']);
-    gulp.watch(['css/styles.css', '**/*.twig', 'js/*.js'], function (files){
-        livereload.changed(files)
-    });
+//  gulp.watch(['css/styles.css', '**/*.twig', 'js/*.js'], function (files){
+//      livereload.changed(files)
+//  });
 });
