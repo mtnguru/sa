@@ -4,3 +4,4 @@ sites/default/files
 *.scssc*
 .idea
 .git
+node_modules
