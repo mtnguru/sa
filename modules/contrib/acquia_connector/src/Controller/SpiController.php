@@ -19,6 +19,7 @@ use Drupal\user\Entity\Role;
 use Drupal\Core\Site\Settings;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Url;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Class SpiController.
@@ -172,6 +173,9 @@ class SpiController extends ControllerBase {
     // Based on code from system.install.
     $additional_data['pending_updates'] = FALSE;
     foreach (\Drupal::moduleHandler()->getModuleList() as $module => $filename) {
+      drupal_static_reset('drupal_get_schema_versions');
+      module_load_install($module);
+
       $updates = drupal_get_schema_versions($module);
       if ($updates !== FALSE) {
         $default = drupal_get_installed_schema_version($module);
@@ -180,9 +184,6 @@ class SpiController extends ControllerBase {
           break;
         }
       }
-    }
-    if (!$additional_data['pending_updates'] && \Drupal::service('entity.definition_update_manager')->needsUpdates()) {
-      $additional_data['pending_updates'] = TRUE;
     }
 
     if (!empty($additional_data)) {
@@ -318,10 +319,16 @@ class SpiController extends ControllerBase {
    *   The Acquia Hosted name.
    */
   public function getAcquiaHostedName() {
-    $subscription_name = $this->config('acquia_connector.settings')->get('subscription_name');
+    $config = $this->config('acquia_connector.settings');
+    $subscription_name = $config->get('subscription_name');
 
     if ($this->checkAcquiaHosted() && $subscription_name) {
-      return $this->config('acquia_connector.settings')->get('subscription_name') . ': ' . $_SERVER['AH_SITE_ENVIRONMENT'];
+
+      if ($config->get('spi.is_multisite')) {
+        return $config->get('subscription_name') . '__' . $config->get('spi.multisite_identifier') . ': ' . $_SERVER['AH_SITE_ENVIRONMENT'];
+      }
+
+      return $config->get('subscription_name') . ': ' . $_SERVER['AH_SITE_ENVIRONMENT'];
     }
   }
 
@@ -332,11 +339,16 @@ class SpiController extends ControllerBase {
    *   The suggested Acquia Hosted machine name.
    */
   public function getAcquiaHostedMachineName() {
-    $sub_data = $this->config('acquia_connector.settings')->get('subscription_data');
+    $config = $this->config('acquia_connector.settings');
+    $sub_data = $config->get('subscription_data');
 
     if ($this->checkAcquiaHosted() && $sub_data) {
       $uuid = new StatusController();
       $sub_uuid = str_replace('-', '_', $uuid->getIdFromSub($sub_data));
+
+      if ($config->get('spi.is_multisite')) {
+        return $sub_uuid . '__' . $_SERVER['AH_SITE_NAME'] . '__' . $config->get('spi.machine_multisite_identifier');
+      }
 
       return $sub_uuid . '__' . $_SERVER['AH_SITE_NAME'];
     }
@@ -636,9 +648,9 @@ class SpiController extends ControllerBase {
   private function getAdminCount() {
     $roles_name = array();
     $get_roles = Role::loadMultiple();
-    unset($get_roles[DRUPAL_ANONYMOUS_RID]);
+    unset($get_roles[AccountInterface::ANONYMOUS_ROLE]);
     $permission = array('administer permissions', 'administer users');
-    foreach ($permission as $key => $value) {
+    foreach ($permission as $value) {
       $filtered_roles = array_filter($get_roles, function ($role) use ($value) {
         return $role->hasPermission($value);
       });
@@ -1090,7 +1102,7 @@ class SpiController extends ControllerBase {
 
     $result = array();
     $keys_to_send = array('name', 'version', 'package', 'core', 'project');
-    foreach ($modules as $module_key => $module) {
+    foreach ($modules as $module) {
       $info = array();
       $info['status'] = $module->status;
       foreach ($keys_to_send as $key) {
@@ -1276,7 +1288,7 @@ class SpiController extends ControllerBase {
 
     if ($request->get('destination')) {
       $this->spiProcessMessages($response);
-      $route_match = $route = RouteMatch::createFromRequest($request);
+      $route_match = RouteMatch::createFromRequest($request);
       return $this->redirect($route_match->getRouteName(), $route_match->getRawParameters()->all());
     }
 

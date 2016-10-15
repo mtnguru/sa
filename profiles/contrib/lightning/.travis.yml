@@ -7,13 +7,15 @@ cache:
     - "$HOME/.drush/cache"
     - "$HOME/.npm"
 php:
-  - 5.5
+  - 5.6
 env:
   - VERSION=HEAD
+  - VERSION=8.x-1.05
+  - VERSION=8.x-1.04
+  - VERSION=8.x-1.03
+  - VERSION=8.x-1.02
   - VERSION=8.x-1.01
   - VERSION=8.x-1.00
-  - VERSION=8.x-1.00-rc7
-  - VERSION=8.x-1.00-rc6
 
 sudo: false
 
@@ -58,10 +60,10 @@ before_script:
   - cd docroot
   - drush runserver --default-server=builtin 8080 &>/dev/null &
   - phantomjs --webdriver=4444 > /dev/null &
+  - sleep 5
 
 script:
   - cd ./profiles/lightning
-  - phpcs --standard=$TRAVIS_BUILD_DIR/vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml --ignore=bin,*.css,libraries,modules/contrib .
   - behat --strict
 
 matrix:
