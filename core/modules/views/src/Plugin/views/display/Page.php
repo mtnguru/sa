@@ -176,7 +176,10 @@ class Page extends PathPluginBase {
     //   it should be dropped.
     if (is_array($render)) {
       $render += array(
-        '#title' => ['#markup' => $this->view->getTitle(), '#allowed_tags' => Xss::getHtmlTagList()],
+//      Sorensen - changes to make dialog title display correctly.
+//      '#title' => ['#markup' => $this->view->getTitle(), '#allowed_tags' => Xss::getHtmlTagList()],
+        '#markup' => $this->view->getTitle(),
+        '#allowed_tags' => Xss::getHtmlTagList(),
       );
     }
     return $render;
@@ -294,7 +297,7 @@ class Page extends PathPluginBase {
           '#title' => $this->t('Show as expanded'),
           '#type' => 'checkbox',
           '#default_value' => !empty($menu['expanded']),
-          '#description' => $this->t('If selected and this menu link has children, the menu will always appear expanded. '),
+          '#description' => $this->t('If selected and this menu link has children, the menu will always appear expanded.'),
         ];
 
         // Only display the parent selector if Menu UI module is enabled.
@@ -520,7 +523,7 @@ class Page extends PathPluginBase {
   public function getPagerText() {
     return array(
       'items per page title' => $this->t('Items per page'),
-      'items per page description' => $this->t('The number of items to display per page. Enter 0 for no limit.')
+      'items per page description' => $this->t('Enter 0 for no limit.')
     );
   }
 

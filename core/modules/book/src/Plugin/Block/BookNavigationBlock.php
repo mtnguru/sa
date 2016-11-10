@@ -10,6 +10,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Component\Utility\SortArray;
 
 /**
  * Provides a 'Book navigation' block.
@@ -128,7 +129,9 @@ class BookNavigationBlock extends BlockBase implements ContainerFactoryPluginInt
     if ($this->configuration['block_mode'] == 'all pages') {
       $book_menus = array();
       $pseudo_tree = array(0 => array('below' => FALSE));
-      foreach ($this->bookManager->getAllBooks() as $book_id => $book) {
+      $books = $this->bookManager->getAllBooks();
+      uasort($books, array('Drupal\Component\Utility\SortArray', 'sortByWeightElement'));
+      foreach ($books as $book_id => $book) {
         if ($book['bid'] == $current_bid) {
           // If the current page is a node associated with a book, the menu
           // needs to be retrieved.
@@ -156,9 +159,12 @@ class BookNavigationBlock extends BlockBase implements ContainerFactoryPluginInt
       }
     }
     elseif ($current_bid) {
-      // Only display this block when the user is browsing a book.
-      $query = \Drupal::entityQuery('node');
-      $nid = $query->condition('nid', $node->book['bid'], '=')->execute();
+      // Only display this block when the user is browsing a book and do
+      // not show unpublished books.
+      $nid = \Drupal::entityQuery('node')
+        ->condition('nid', $node->book['bid'], '=')
+        ->condition('status', NODE_PUBLISHED)
+        ->execute();
 
       // Only show the block if the user has view access for the top-level node.
       if ($nid) {

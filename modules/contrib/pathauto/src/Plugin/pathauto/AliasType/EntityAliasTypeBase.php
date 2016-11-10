@@ -7,6 +7,7 @@ use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Plugin\Context\Context;
 use Drupal\Core\Plugin\ContextAwarePluginBase;
 use Drupal\pathauto\AliasTypeBatchUpdateInterface;
 use Drupal\pathauto\AliasTypeInterface;
@@ -212,5 +213,16 @@ class EntityAliasTypeBase extends ContextAwarePluginBase implements AliasTypeInt
     }
     return $this->prefix;
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setContextValue($name, $value) {
+    // Overridden to avoid merging existing cacheability metadata, which is not
+    // relevant for alias type plugins.
+    $this->context[$name] = new Context($this->getContextDefinition($name), $value);
+    return $this;
+  }
+
 
 }

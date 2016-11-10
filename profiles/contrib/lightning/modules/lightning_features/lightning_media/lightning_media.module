@@ -19,6 +19,15 @@ function lightning_media_form_entity_browser_media_browser_form_alter(array &$fo
 }
 
 /**
+ * Implements hook_entity_type_alter().
+ */
+function lightning_media_entity_type_alter(array &$entity_types) {
+  // Files should never be workspace-aware. Besides, they ALWAYS conflict during
+  // replication, for reasons as yet unknown.
+  $entity_types['file']->set('multiversion', FALSE);
+}
+
+/**
  * Implements hook_ENTITY_TYPE_insert().
  */
 function lightning_media_media_bundle_insert(MediaBundleInterface $bundle) {

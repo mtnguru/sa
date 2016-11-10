@@ -1,3 +1,34 @@
+## 1.12
+* Drupal core, and several contributed dependencies, were updated to their
+  latest stable releases.
+* Locked workflow states will now be clearly denoted with a lock icon when
+  editing a workspace. (GitHub #199)
+* The list of workspaces will no longer display a Status column. (GitHub #200
+  and #184)
+* Explained the Lightning Extender in README. (GitHub #198)
+* Node authorship is now preserved during replication between workspaces.
+  (GitHub #191, Issue #2817231)
+* File entities are now opted out of Multiversion control (i.e., all files
+  will always exist in all workspaces.) (GitHub #197)
+
+## 1.11
+* Fixed a dependency problem that was preventing Lightning from being installed
+  via Composer. (Issue #2699121)
+* Patched a core bug that could in certain circumstances result in file copies
+  failing during installation. (GitHub #179, Issue #2782239 and #2818031)
+* Lightning Preview is now compatible with Pathauto. (Issue #2817253)
+
+## 1.10
+* Drupal core updated to 8.2.1.
+* Introduced Lightning Preview module and Workspace Preview System.
+
+## 1.06
+* Drupal core updated to 8.2.0!
+* Previously, the Metatag module could break Drush. This is now patched
+  (see https://www.drupal.org/node/2786795), and Metatag has been updated
+  to 8.x-1.0-beta10.
+* Panels has been updated to 8.x-3.0-beta5 (security update).
+
 ## 1.05
 * Drupal core was updated to 8.1.10.
 * Several contrib dependencies were updated.
