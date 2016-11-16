@@ -129,6 +129,7 @@ class BookNavigationBlock extends BlockBase implements ContainerFactoryPluginInt
     if ($this->configuration['block_mode'] == 'all pages') {
       $book_menus = array();
       $pseudo_tree = array(0 => array('below' => FALSE));
+      // Sorensen - add sort by weight to foreach
       $books = $this->bookManager->getAllBooks();
       uasort($books, array('Drupal\Component\Utility\SortArray', 'sortByWeightElement'));
       foreach ($books as $book_id => $book) {
